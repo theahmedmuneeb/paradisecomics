@@ -5,7 +5,7 @@ app.get('/image', async (req, res) => {
     const { price, issue, condition, quality } = req.query;
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    const url = `http://localhost:3000/image.html?price=${encodeURIComponent(price)}&issue=${encodeURIComponent(issue)}&condition=${encodeURIComponent(condition)}&quality=${encodeURIComponent(quality)}`;
+    const url = `https://paradisecomics.vercel.app/image.html?price=${encodeURIComponent(price)}&issue=${encodeURIComponent(issue)}&condition=${encodeURIComponent(condition)}&quality=${encodeURIComponent(quality)}`;
     await page.goto(url, { waitUntil: 'networkidle0' });
     const cardSelector = '#image';
     await page.waitForSelector(cardSelector);
