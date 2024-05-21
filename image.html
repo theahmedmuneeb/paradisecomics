@@ -7,20 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <style>
-    .text-shadow-sm {
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    }
     .text-shadow-md {
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    .text-shadow-lg {
-      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-    }
-    .text-shadow-xl {
-      text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-    }
-    .text-shadow-2xl {
-      text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     }
   </style>
 <body>
@@ -29,17 +17,19 @@
         <div class="flex flex-row w-96 h-96">
         <div class="w-1/2">
         <div class="p-5 w-full h-1/5 bg-[#6289b5cc] flex justify-center items-center rounded-b">
-            <img src="https://paradisecomics.com/wp-content/uploads/2019/04/paradise_comics_logo.png">
+            <img src="paradise_comics_logo.png">
         </div>
         <div class="pt-1 bg-white text-2xl font-extrabold text-center h-4/5 flex flex-col justify-center italic text-shadow-md">
-        <h1>Origin & first appearence of daredevil</h1>
-        <h1 class="mt-4 text-3xl">CGC 8.5</h1>
-        <h1 class="mt-4">OFF-WHITE TO WHITE PAGES</h1>
-        <h1 id="price" class="mt-4 text-3xl">$ 14,300</h1>
+        <h1 id="title"></h1>
+        <h1 id="issue" class="mt-2 text-xl"></h1>
+        <h1 id="cgc" class="mt-2"></h1>
+        <h1 id="condition" class="mt-2"></h1>
+        <h1 id="quality" class="mt-2 text-xl"></h1>
+        <h1 id="price" class="mt-2"></h1>
         </div>
         </div>
         <div class="w-1/2">
-            <img class="h-full" src="https://paradisecomics.com/wp-content/uploads/2024/04/04072024_002-416x685.jpg">
+            <img id="poster" class="h-full" src="">
         </div>
         
         </div>
@@ -48,9 +38,12 @@
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     document.getElementById('price').innerText = `$ ${Number(urlParams.get('price')).toLocaleString('en-US') || '--'}`;
-    document.getElementById('issue').innerText = urlParams.get('issue') || '--';
+    document.getElementById('issue').innerText = `issue: ${urlParams.get('issue')}` || '1';
     document.getElementById('condition').innerText = urlParams.get('condition') || '--';
     document.getElementById('quality').innerText = urlParams.get('quality') || '--';
+    document.getElementById('title').innerText = urlParams.get('title') || '--';
+    document.getElementById('poster').src = urlParams.get('poster') || '--';
+    document.getElementById('cgc').innerText = `CGC ${urlParams.get('cgc')}` || '--';
 </script>
 
 </body>
